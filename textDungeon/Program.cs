@@ -1,4 +1,4 @@
-﻿
+﻿//상점 미구현....
 namespace text_RPG
 {
     internal class Program
