@@ -24,8 +24,8 @@
 
     
 internal class program {
-
-        private static Character player;
+    
+    private static Character player;
     static void Main(string[] args)
     {
         GameDataSetting();
