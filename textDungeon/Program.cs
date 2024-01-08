@@ -138,6 +138,35 @@ internal class program {
         Console.WriteLine("필요한 아이템을 얻을 수 있는 상점입니다.");
         Console.WriteLine();
         Console.WriteLine("[보유골드]");
+        Console.WriteLine($"{player.Gold} G");
+        Console.WriteLine();
+        Console.WriteLine("아이템 목록");
+        Console.WriteLine("- 수련자 갑옷");
+        Console.WriteLine("- 무쇠갑옷");
+        Console.WriteLine("- 스파르타의 갑옷");
+        Console.WriteLine("- 낡은 검");
+        Console.WriteLine("- 청동 도끼");
+        Console.WriteLine();
+        Console.WriteLine("0. 아이템 구매");
+        Console.WriteLine("1. 나가기");
+        Console.WriteLine();
+        Console.WriteLine("원하시는 행동을 입력해주세요.");
+        Console.ForegroundColor = ConsoleColor.DarkYellow;
+        Console.Write(">>");
+        Console.ResetColor();
+
+
+        int input = CheckValidInput(0, 1);
+        switch (input)
+        {
+            case 0:
+                Console.Clear();
+                //구현예정
+                break;
+            case 1:
+                DisplayGameIntro();
+                break;
+        }
     }
     static int CheckValidInput(int min, int max)
         {
