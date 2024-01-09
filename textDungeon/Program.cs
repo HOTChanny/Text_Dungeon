@@ -55,6 +55,7 @@ internal class program {
         Console.WriteLine("1. 상태 보기");
         Console.WriteLine("2. 인벤토리");
         Console.WriteLine("3. 상점");
+        Console.WriteLine("4. 게임 종료");
         Console.WriteLine();
         Console.ResetColor();
         Console.WriteLine("원하시는 행동을 입력해주세요.");
@@ -63,7 +64,7 @@ internal class program {
         Console.ResetColor();
         
 
-        int input = CheckValidInput(1, 3);
+        int input = CheckValidInput(1, 4);
         switch (input)
             {
             case 1:
@@ -74,6 +75,12 @@ internal class program {
                 break;
             case 3:
                 Shop();
+                break;
+            case 4:
+                Console.ForegroundColor = ConsoleColor.Red;
+                Console.WriteLine("게임을 종료합니다.");
+                Console.ResetColor();
+                Environment.Exit(0);
                 break;
         }
     }
