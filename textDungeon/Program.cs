@@ -29,9 +29,10 @@ internal class program {
     static void Main(string[] args)
     {
         GameDataSetting();
-        DisplayGameIntro();
-        
-        DisplayShop();
+        MainMenu();
+        MyInfo();
+        Inventory();
+        Shop();
     }
 
     static void GameDataSetting()
@@ -40,7 +41,7 @@ internal class program {
         player = new Character("Chad", "전사", 1, 10, 5, 100, 1500);
         // 아이템 정보 세팅
     }
-    static void DisplayGameIntro()
+    static void MainMenu()
     {
         Console.Title = "TEXT_RPG";
         Console.Clear();
@@ -65,23 +66,23 @@ internal class program {
         int input = CheckValidInput(1, 3);
         switch (input)
             {
-            case 1:                        
-                DisplayMyInfo();
+            case 1:
+                MyInfo();
                 break;
             case 2:
-                DisplayInventory();
+                Inventory();
                 break;
             case 3:
-                DisplayShop();
+                Shop();
                 break;
         }
     }
-    static void DisplayMyInfo()
+    static void MyInfo()
     {
         Console.Clear();
 
         Console.WriteLine("상태보기");
-        Console.WriteLine("캐릭터의 정보르 표시합니다.");
+        Console.WriteLine("캐릭터의 정보를 표시합니다.");
         Console.WriteLine();
         Console.WriteLine($"Lv.{player.Level}");
         Console.WriteLine($"{player.Name}({player.Job})");
@@ -96,11 +97,11 @@ internal class program {
         switch (input)
         {
             case 0:
-                DisplayGameIntro();
+                MainMenu();
                 break;
         }
     }
-    static void DisplayInventory()
+    static void Inventory()
     {
         Console.Clear();
         Console.ForegroundColor = ConsoleColor.DarkYellow;
@@ -122,14 +123,14 @@ internal class program {
                 Console.WriteLine("소지한 장비가 없습니다.");
                 Console.WriteLine("곧 인벤토리로 이동합니다");
                 Thread.Sleep(1500);
-                DisplayInventory();
+                Inventory();
                 break;
             case 1:
-                DisplayGameIntro();
+                MainMenu();
                 break;
         }
     }
-    static void DisplayShop()
+    static void Shop()
     {
         Console.Clear();
         Console.ForegroundColor = ConsoleColor.DarkYellow;
@@ -160,11 +161,15 @@ internal class program {
         switch (input)
         {
             case 0:
+                // 구현예정
                 Console.Clear();
-                //구현예정
+                Console.WriteLine("살 수 있는 장비가 없습니다.");
+                Console.WriteLine("곧 인벤토리로 이동합니다");
+                Thread.Sleep(1500);
+                Shop();
                 break;
             case 1:
-                DisplayGameIntro();
+                MainMenu();
                 break;
         }
     }
