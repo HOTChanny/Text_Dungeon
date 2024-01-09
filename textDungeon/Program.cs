@@ -174,22 +174,22 @@ internal class program {
         }
     }
     static int CheckValidInput(int min, int max)
+    {
+        while (true) // 사용자로부터 유효한 입력을 받을때까지 무한 반복
         {
-            while (true)
+            string input = Console.ReadLine(); // 사용자로부터 문자열 형태의 입력
+
+            bool parseSuccess = int.TryParse(input, out var ret); // 입력된 문자열을 정수로 변환 // 변환에 성공하면 ret 변수에 변환값 저장, parseSuccess를 true로 설정
+            if (parseSuccess)
             {
-                string input = Console.ReadLine();
-
-                bool parseSuccess = int.TryParse(input, out var ret);
-                if (parseSuccess)
-                {
-                    if (ret >= min && ret <= max)
-                        return ret;
-                }
-
-                Console.WriteLine("잘못된 입력입니다.");
+                if (ret >= min && ret <= max) // 변환값인 ret가 min과 max 사이에 있는지 점검, 있으면 ret값을 반환하고 함수 종료
+                    return ret;
             }
-        }
- }
+
+            Console.WriteLine("잘못된 입력입니다."); // 입력이 올바르지 않은 경우(범위를 벗어낫거나) 출력
+        }                                            //사용자가 유효한 입력을 제공할때까지 루프 반복
+    }
+}
 public class Character
 {
     public string Name { get; }
